@@ -27,7 +27,6 @@ module.exports = {
     classSize: {
         type: 'integer'
     },
-
     instructor: {
         model: 'instructor',
         via: 'classes'

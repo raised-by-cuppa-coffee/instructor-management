@@ -8,7 +8,17 @@
 module.exports = {
 
   attributes: {
-
+    grade: {
+      type: 'integer',
+      required: true
+    },
+    instructor: {
+      model: 'instructor',
+      required: true
+    },
+    class: {
+      model: 'class',
+      required: true
+    }
   }
 };
-

@@ -1,7 +1,7 @@
 /**
- * ContactController
+ * PhoneController
  *
- * @description :: Server-side logic for managing contacts
+ * @description :: Server-side logic for managing phones
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 

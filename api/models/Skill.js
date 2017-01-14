@@ -9,14 +9,13 @@ module.exports = {
 
   attributes: {
     name: {
-        type: 'string',
-        required: true,
-        unique: true
+      type: 'string',
+      required: true,
+      unique: true
     },
     instructor: {
-        collection: 'instructor',
-        via: 'skills'
+      collection: 'instructor',
+      via: 'skills'
     }
   }
 };
-

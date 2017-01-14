@@ -1,5 +1,5 @@
 /**
- * Education.js
+ * Address.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,12 +8,22 @@
 module.exports = {
 
   attributes: {
-    type: {
+    address: {
       type: 'string',
-      enum: ['B.A.','B.S.','M.A.', 'M.S.', 'Ph.D.', 'certification'],
       required: true
     },
-    institution: {
+    address_secondary: {
+      type: 'string'
+    },
+    city: {
+      type: 'string',
+      required: true
+    },
+    state: {
+      type: 'string',
+      required: true
+    },
+    zip: {
       type: 'string',
       required: true
     },
@@ -22,4 +32,3 @@ module.exports = {
     }
   }
 };
-

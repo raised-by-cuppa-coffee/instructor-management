@@ -9,28 +9,47 @@ module.exports = {
 
   attributes: {
     firstName: {
-        type: 'string',
-        required: true
+      type: 'string',
+      required: true
     },
     middleName: {
-        type: 'string'
+      type: 'string'
     },
     lastName: {
-        type: 'string',
-        required: true
+      type: 'string',
+      required: true
     },
-    contact: {
-        collection: 'contact',
-        via: 'instructor'
+    /**
+     * Instructor could have multiple phone numbers
+     * @type {Object}
+     */
+    phone: {
+      collection: 'phone',
+      via: 'instructor'
+    },
+    /**
+     * Instructor could have multiple email addresses
+     * @type {Object}
+     */
+    email: {
+      collection: 'email',
+      via: 'instructor'
     },
     skills: {
-        collection: 'skill',
-        via: 'instructor'
+      collection: 'skill',
+      via: 'instructor'
     },
     classes: {
-        collection: 'class',
-        via: 'instructor'
+      collection: 'class',
+      via: 'instructor'
+    },
+    evaluation: {
+      collection: 'evaluation',
+      via: 'instructor'
+    },
+    education: {
+      collection: 'education',
+      via: 'instructor'
     }
   }
 };
-
