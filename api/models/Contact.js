@@ -19,7 +19,8 @@ module.exports = {
         type: 'string'
     },
     instructor: {
-        model: 'instructor'
+        model: 'instructor',
+        via: 'contact'
     }
   }
 };

@@ -29,7 +29,8 @@ module.exports = {
     },
 
     instructor: {
-        model: 'instructor'
+        model: 'instructor',
+        via: 'classes'
     }
   }
 };
