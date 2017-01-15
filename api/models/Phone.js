@@ -10,10 +10,9 @@ module.exports = {
   attributes: {
     phone: {
       type: 'string',
-      required: true,
-      unique: true
+      required: true
     },
-    type: {
+    phoneType: {
       type: 'string',
       enum: ['primary', 'work', 'mobile'],
       required: true
