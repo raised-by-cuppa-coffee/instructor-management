@@ -24,12 +24,12 @@ module.exports = {
         type: 'date',
         required: true  
     },
-    classSize: {
+    courseSize: {
         type: 'integer'
     },
     instructor: {
         model: 'instructor',
-        via: 'classes'
+        via: 'courses'
     }
   }
 };

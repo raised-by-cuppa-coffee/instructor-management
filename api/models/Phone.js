@@ -14,7 +14,7 @@ module.exports = {
     },
     phoneType: {
       type: 'string',
-      enum: ['primary', 'work', 'mobile'],
+      enum: ['personal', 'work', 'mobile', 'other'],
       required: true
     },
     extension: {

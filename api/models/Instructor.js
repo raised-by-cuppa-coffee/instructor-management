@@ -39,8 +39,8 @@ module.exports = {
       collection: 'skill',
       via: 'instructor'
     },
-    classes: {
-      collection: 'class',
+    courses: {
+      collection: 'course',
       via: 'instructor'
     },
     evaluation: {

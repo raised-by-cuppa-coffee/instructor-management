@@ -16,8 +16,8 @@ module.exports = {
       model: 'instructor',
       required: true
     },
-    class: {
-      model: 'class',
+    course: {
+      model: 'course',
       required: true
     }
   }

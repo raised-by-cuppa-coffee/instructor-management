@@ -13,6 +13,11 @@ module.exports = {
       required: true,
       unique: true
     },
+    emailType: {
+      type: 'string',
+      enum: ['personal', 'work', 'other'],
+      required: true
+    },
     instructor: {
       model: 'instructor'
     }

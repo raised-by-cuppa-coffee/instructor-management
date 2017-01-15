@@ -8,12 +8,16 @@
 module.exports = {
 
   attributes: {
-    type: {
+    degree: {
       type: 'string',
       enum: ['B.A.','B.S.','M.A.', 'M.S.', 'Ph.D.', 'certification'],
       required: true
     },
     institution: {
+      type: 'string',
+      required: true
+    },
+    specialty: {
       type: 'string',
       required: true
     },
