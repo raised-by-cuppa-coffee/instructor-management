@@ -12,3 +12,4 @@ Current iteration uses MySQL database in a Docker container.
 
     docker run -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_USER=instructor_admin -e MYSQL_PASSWORD=sail$ -e MYSQL_DATABASE=instructors -d -p 32768:3306 mysql:latest
 
+The user, password and port combination will work with development code
