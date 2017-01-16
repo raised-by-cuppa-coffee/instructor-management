@@ -23,7 +23,7 @@ module.exports = {
      * Instructor could have multiple phone numbers
      * @type {Object}
      */
-    phone: {
+    phones: {
       collection: 'phone',
       via: 'instructor'
     },
@@ -31,7 +31,7 @@ module.exports = {
      * Instructor could have multiple email addresses
      * @type {Object}
      */
-    email: {
+    emails: {
       collection: 'email',
       via: 'instructor'
     },
@@ -39,16 +39,20 @@ module.exports = {
       collection: 'skill',
       via: 'instructor'
     },
-    classes: {
-      collection: 'class',
+    courses: {
+      collection: 'course',
       via: 'instructor'
     },
-    evaluation: {
+    evaluations: {
       collection: 'evaluation',
       via: 'instructor'
     },
     education: {
       collection: 'education',
+      via: 'instructor'
+    },
+    addresses: {
+      collection: 'address',
       via: 'instructor'
     }
   }
