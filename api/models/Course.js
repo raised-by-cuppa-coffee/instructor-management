@@ -28,8 +28,7 @@ module.exports = {
         type: 'integer'
     },
     instructor: {
-        model: 'instructor',
-        via: 'courses'
+        model: 'instructor'
     }
   }
 };
