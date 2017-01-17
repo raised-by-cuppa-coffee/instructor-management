@@ -34,7 +34,9 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+  'PUT /user/update-admin/:id': 'UserController.updateAdmin',
+  'GET /user/admin-users': 'UserController.adminUsers'
 
   /***************************************************************************
   *                                                                          *
