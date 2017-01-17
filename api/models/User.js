@@ -25,10 +25,6 @@ module.exports = {
         type: 'string'
       },
 
-      gravatarURL: {
-        type: 'string'
-      },
-
       deleted: {
         type: 'boolean'
       },
