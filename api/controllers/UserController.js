@@ -389,7 +389,9 @@ module.exports = {
    */
   adminUsers: function(req, res) {
 
-    User.find().exec(function(err, users) {
+    User.find()
+    .where({admin: true})
+    .exec(function(err, users) {
 
       if (err) return res.negotiate(err);
 
