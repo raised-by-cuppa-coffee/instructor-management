@@ -8,7 +8,50 @@
 module.exports = {
 
   attributes: {
+    attributes: {
 
+      email: {
+        type: 'string',
+        email: 'true',
+        unique: 'true'
+      },
+
+      username: {
+        type: 'string',
+        unique: 'true'
+      },
+
+      encryptedPassword: {
+        type: 'string'
+      },
+
+      gravatarURL: {
+        type: 'string'
+      },
+
+      deleted: {
+        type: 'boolean'
+      },
+
+      admin: {
+        type: 'boolean'
+      },
+
+      locked: {
+        type: 'boolean'
+      },
+
+      passwordRecoveryToken: {
+        type: 'string'
+      },
+
+      toJSON: function() {
+        var obj = this.toObject();
+        delete obj.password;
+        delete obj.confirmation;
+        delete obj.encryptedPassword;
+        return obj;
+      }
+    }
   }
 };
-
