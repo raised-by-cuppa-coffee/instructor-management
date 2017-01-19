@@ -35,14 +35,6 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  'PUT /login' : 'UserController.login',
-  'POST /logout' : 'UserController.logout',
-  'POST /user/register' : 'UserController.create',
-
-  'PUT /user/update-admin/:id': 'UserController.updateAdmin',
-  'PUT /user/update-locked/:id': 'UserController.updateLocked',
-  'PUT /user/update-deleted/:id': 'UserController.updateDeleted',
-  'GET /user/admin-users': 'UserController.adminUsers'
 
   /***************************************************************************
   *                                                                          *
@@ -53,5 +45,15 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  /* Public user actions */
+  'PUT /login' : 'UserController.login',
+  'POST /logout' : 'UserController.logout',
+  'POST /user/register' : 'UserController.create',
 
+  /* Logged in user actions*/
+  'PUT /user/update-admin/:id': 'UserController.updateAdmin',
+  'PUT /user/update-locked/:id': 'UserController.updateLocked',
+  'PUT /user/update-deleted/:id': 'UserController.updateDeleted',
+  'GET /user/admin-users': 'UserController.adminUsers',
+  'PUT /user/delete' : 'UserController.delete',
 };
