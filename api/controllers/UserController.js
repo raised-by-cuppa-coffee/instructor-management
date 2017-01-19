@@ -161,7 +161,7 @@ module.exports = {
     });
   },
   /**
-   * Sets the deleted flag to true so that users can be recreated if necessary
+   * Allows user to delete their account, but allows for recovery
    * @param  {[type]} req [description]
    * @param  {[type]} res [description]
    * @return {[type]}     [description]
