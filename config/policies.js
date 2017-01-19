@@ -56,15 +56,32 @@ module.exports.policies = {
     logout: 'isLoggedIn',
     resetPassword: 'isLoggedIn',
     changePassword: 'isLoggedIn',
+    delete : 'isLoggedIn',
+    // update: 'isLoggedIn', // not yet implemented
     /* isAdmin */
     adminUsers: 'isAdmin',
-    updateAdmin: 'isAdmin',
     restore: 'isAdmin',
+    updateAdmin: 'isAdmin',
     updateDeleted: 'isAdmin',
     updateLocked : 'isAdmin',
     
+    // if user can't login, they should be able to generate a recovery email
+    generateRecoveryEmail: true,
     // always can attempt login
     login: true,
     create: true // for starters.  This should be true when developing so you can create a user
-  } 
+  },
+
+  InstructorController: {
+    '*': false,
+
+    'find': 'isLoggedIn',
+    'findOne': 'isLoggedIn',
+    'create': 'isAdmin',
+    'update': 'isAdmin',
+    'destroy': 'isAdmin',
+    'populate': 'isLoggedIn',
+    'add': 'isAdmin',
+    'remove': 'isAdmin'
+  }
 };
