@@ -35,8 +35,13 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  'PUT /login' : 'UserController.login',
+  'POST /logout' : 'UserController.logout',
+  'POST /user/register' : 'UserController.create',
+
   'PUT /user/update-admin/:id': 'UserController.updateAdmin',
   'GET /user/admin-users': 'UserController.adminUsers'
+  
 
   /***************************************************************************
   *                                                                          *

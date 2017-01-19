@@ -48,4 +48,15 @@ module.exports.policies = {
 		// before letting any users feed our rabbits
 		// feed : ['isNiceToAnimals', 'hasRabbitFood']
 	// }
+  
+  UserController: {
+
+    '*': false,
+    logout: 'isLoggedIn',
+    adminUsers: 'isAdmin',
+    // always can attempt login
+    login: true,
+    updateAdmin: 'isLoggedIn',
+    create: true // for starters.  This should be true when developing so you can create a user
+  } 
 };

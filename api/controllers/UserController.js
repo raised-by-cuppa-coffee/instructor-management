@@ -13,21 +13,17 @@ var Strings = require('machinepack-strings');
 module.exports = {
 
   /**
-   * Log in with either username or email address
+   * Log in with email address and password
    * @param  {[type]} req [description]
    * @param  {[type]} res [description]
    * @return {[type]}     [description]
    */
   login: function(req, res) {
-
-    User.findOne({
-      or: [{
-        email: req.param('email')
-      }, {
-        username: req.param('username')
-      }]
+    User.findOne({      
+      email: req.param('email')
     }, function foundUser(err, createdUser) {
       if (err) return res.negotiate(err);
+
       if (!createdUser) return res.notFound();
 
       Passwords.checkPassword({
@@ -55,7 +51,11 @@ module.exports = {
 
           req.session.userId = createdUser.id;
 
-          return res.ok();
+          return res.ok({
+            loggedIn: true,
+            username: createdUser.username,
+            userId: createdUser.id
+          });
 
         }
       });
@@ -422,14 +422,19 @@ module.exports = {
    * @return {[type]}     [description]
    */
   updateAdmin: function(req, res) {
-
+    if (!_.isString(req.param('admin'))) {
+      return res.badRequest('you must provide whether admin value is true/false');
+    }
     User.update(req.param('id'), {
       admin: req.param('admin')
     }).exec(function(err, update) {
 
       if (err) return res.negotiate(err);
 
-      return res.ok();
+      return res.ok({
+        updated: true,
+        userId: req.param('id')
+      });
     });
   },
   /**
@@ -443,7 +448,10 @@ module.exports = {
       locked: req.param('locked')
     }).exec(function(err, update) {
       if (err) return res.negotiate(err);
-      return res.ok();
+      return res.ok({
+        updated: true,
+        userId: req.param('id')
+      });
     });
   },
   /**
@@ -457,7 +465,10 @@ module.exports = {
       deleted: req.param('deleted')
     }).exec(function(err, update) {
       if (err) return res.negotiate(err);
-      return res.ok();
+      return res.ok({
+        updated: true,
+        userId: req.param('id')
+      });
     });
   }
 };

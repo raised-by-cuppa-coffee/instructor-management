@@ -13,7 +13,7 @@ module.exports = function isAdmin(req, res, next) {
   }
   // query to find the user
   User.findOne({
-    user: req.session.userId
+    id: req.session.userId
   })
   .exec(function(err, user) {
     // return server error if any
