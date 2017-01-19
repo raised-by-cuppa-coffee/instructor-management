@@ -52,11 +52,19 @@ module.exports.policies = {
   UserController: {
 
     '*': false,
+    /* isLoggedIn */
     logout: 'isLoggedIn',
+    resetPassword: 'isLoggedIn',
+    changePassword: 'isLoggedIn',
+    /* isAdmin */
     adminUsers: 'isAdmin',
+    updateAdmin: 'isAdmin',
+    restore: 'isAdmin',
+    updateDeleted: 'isAdmin',
+    updateLocked : 'isAdmin',
+    
     // always can attempt login
     login: true,
-    updateAdmin: 'isLoggedIn',
     create: true // for starters.  This should be true when developing so you can create a user
   } 
 };

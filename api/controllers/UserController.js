@@ -187,7 +187,7 @@ module.exports = {
    * @param  {[type]} res [description]
    * @return {[type]}     [description]
    */
-  remove: function(req, res) {
+  delete: function(req, res) {
 
     User.update({
       id: req.session.userId
@@ -444,6 +444,9 @@ module.exports = {
    * @return {[type]}     [description]
    */
   updateLocked: function(req, res) {
+    if (!_.isString(req.param('locked'))) {
+      return res.badRequest('you must provide whether locked value is true/false');
+    }
     User.update(req.param('id'), {
       locked: req.param('locked')
     }).exec(function(err, update) {
@@ -461,6 +464,9 @@ module.exports = {
    * @return {[type]}     [description]
    */
   updateDeleted: function(req, res) {
+    if (!_.isString(req.param('deleted'))) {
+      return res.badRequest('you must provide whether deleted value is true/false');
+    }
     User.update(req.param('id'), {
       deleted: req.param('deleted')
     }).exec(function(err, update) {

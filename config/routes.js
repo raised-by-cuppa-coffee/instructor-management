@@ -40,8 +40,9 @@ module.exports.routes = {
   'POST /user/register' : 'UserController.create',
 
   'PUT /user/update-admin/:id': 'UserController.updateAdmin',
+  'PUT /user/update-locked/:id': 'UserController.updateLocked',
+  'PUT /user/update-deleted/:id': 'UserController.updateDeleted',
   'GET /user/admin-users': 'UserController.adminUsers'
-  
 
   /***************************************************************************
   *                                                                          *
