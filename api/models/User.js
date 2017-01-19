@@ -15,11 +15,6 @@ module.exports = {
       unique: 'true'
     },
 
-    username: {
-      type: 'string',
-      unique: 'true'
-    },
-
     encryptedPassword: {
       type: 'string'
     },

@@ -53,7 +53,7 @@ module.exports = {
 
           return res.ok({
             loggedIn: true,
-            username: createdUser.username,
+            email: createdUser.email,
             userId: createdUser.id
           });
 
@@ -102,20 +102,6 @@ module.exports = {
       return res.badRequest('Password must be at least 6 characters!');
     }
 
-    if (_.isUndefined(req.param('username'))) {
-      return res.badRequest('A username is required!');
-    }
-
-    // username must be at least 6 characters
-    if (req.param('username').length < 6) {
-      return res.badRequest('Username must be at least 6 characters!');
-    }
-
-    // Username must contain only numbers and letters.
-    if (!_.isString(req.param('username')) || req.param('username').match(/[^a-z0-9]/i)) {
-      return res.badRequest('Invalid username: must consist of numbers and letters only.');
-    }
-
     Emailaddresses.validate({
       string: req.param('email'),
     }).exec({
@@ -142,13 +128,13 @@ module.exports = {
             var options = {};
 
             options.email = req.param('email');
-            options.username = req.param('username');
             options.encryptedPassword = result;
             options.deleted = false;
             options.admin = false;
             options.locked = false;
 
-            User.create(options).exec(function(err, createdUser) {
+            User.create(options)
+            .exec(function(err, createdUser) {
               if (err) {
                 console.log('the error is: ', err.invalidAttributes);
 
@@ -159,13 +145,6 @@ module.exports = {
                   return res.alreadyInUse(err);
                 }
 
-                // Check for duplicate username
-                if (err.invalidAttributes && err.invalidAttributes.username && err.invalidAttributes.username[0] && err.invalidAttributes.username[0].rule === 'unique') {
-
-                  // return res.send(409, 'Username is already taken by another user, please try again.');
-                  return res.alreadyInUse(err);
-                }
-
                 return res.negotiate(err);
               }
 
@@ -173,7 +152,7 @@ module.exports = {
               req.session.userId = createdUser.id;
 
               return res.json({
-                username: createdUser.username
+                userId: createdUser.id
               });
             });
           }
@@ -273,7 +252,7 @@ module.exports = {
 
             // If successful return updatedUsers
             return res.json({
-              username: updatedUsers[0].username
+              userId: updatedUsers[0].id
             });
           });
         }
@@ -319,7 +298,7 @@ module.exports = {
             req.session.userId = user.id;
 
             return res.json({
-              username: updatedUser[0].username
+              userId: updatedUsers[0].id
             });
           });
         }
@@ -374,7 +353,7 @@ module.exports = {
             return res.negotiate(err);
           }
           return res.json({
-            username: updatedUser[0].username
+            userId: updatedUsers[0].id
           });
         });
       }
@@ -401,7 +380,6 @@ module.exports = {
 
         user = {
           id: user.id,
-          username: user.username,
           email: user.email,
           admin: user.admin,
           locked: user.locked,
